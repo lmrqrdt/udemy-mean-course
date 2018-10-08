@@ -58,8 +58,9 @@ export class PostListComponent implements OnInit, OnDestroy {
           pageSize: this.paginator.pageSize,
           length: this.totalPosts
         });
+      } else {
+        this.postsService.getPosts(this.postsPerPage, this.currentPage);
       }
-      this.postsService.getPosts(this.postsPerPage, this.currentPage);
     });
   }
 
