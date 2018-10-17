@@ -22,7 +22,7 @@ router.post('/signup', (req, res, next) => {
       })
       .catch(err => {
         res.status(500).json({
-          error: err
+          message: 'That username is already in use, please select another.'
         })
       });
   });
@@ -34,7 +34,7 @@ router.post('/login', (req, res, next) => {
     .then(user => {
       if (!user) {
         return res.status(401).json({
-          message: 'Authorization failed!'
+          message: 'Invalid username or password!'
         });
       }
       fetchedUser = user;
@@ -43,7 +43,7 @@ router.post('/login', (req, res, next) => {
     .then(result => {
       if (!result) {
         return res.status(401).json({
-          message: 'Authorization failed!'
+          message: 'Authentication failed!'
         });
       }
       const token = jwt.sign(
@@ -60,7 +60,7 @@ router.post('/login', (req, res, next) => {
     .catch(err => {
       console.log(err);
       return res.status(401).json({
-        message: 'Authorization failed!'
+        message: 'Invalid authorization credentials!'
     });
   });
 });

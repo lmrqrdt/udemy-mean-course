@@ -48,9 +48,13 @@ router.post(
           id: createdPost._id
         }
       });
+    })
+    .catch(error => {
+      res.status.json({
+        message: 'Creating a post failed.'
+      });
     });
-  }
-);
+});
 
 router.put(
   '/:id',
@@ -75,6 +79,11 @@ router.put(
     } else {
       res.status(401).json({message: 'Update unauthorized!'});
     }
+  })
+  .catch(error => {
+    res.status(500).json({
+      message: 'Unable to update post!'
+    });
   });
 });
 
@@ -97,7 +106,12 @@ router.get('', (req, res, next) => {
       message: 'Posts fetched successfully.',
       posts: fetchedPosts,
       maxPosts: count
-    })
+    });
+  })
+  .catch(error => {
+    res.status(500).json({
+      message: 'Unable to fetch posts!'
+    });
   });
 });
 
@@ -108,6 +122,11 @@ router.get('/:id', (req, res, next) => {
     } else {
       res.status(404).json({message: 'Post not found!'});
     }
+  })
+  .catch(error => {
+    res.status(500).json({
+      message: 'Unable to fetch post!'
+    });
   });
 });
 
@@ -119,6 +138,11 @@ router.delete('/:id', checkAuth, (req, res, next) => {
       res.status(401).json({message: 'Deletion unauthorized!'});
     }
   })
+  .catch(error => {
+    res.status(500).json({
+      message: 'Unable to delete post!'
+    });
+  });
 });
 
 module.exports = router;
