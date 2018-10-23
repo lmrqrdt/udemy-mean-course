@@ -12,7 +12,10 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 
 // mongodb pw PG1xaX01RTJbKSUX
-mongoose.connect('mongodb+srv://larry:PG1xaX01RTJbKSUX@cluster0-ed9jk.mongodb.net/mean-course-db', {useNewUrlParser: true})
+mongoose.connect(
+  'mongodb+srv://larry:' +
+    process.env.MONGO_ATLAS_PW +
+    '@cluster0-ed9jk.mongodb.net/mean-course-db', {useNewUrlParser: true})
  .then (() => {
     console.log('Connected to database!')
   }).catch(() => {
