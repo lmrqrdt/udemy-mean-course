@@ -1,0 +1,5 @@
+npm run start:server (localhost:3000 but must be online for database)
+
+http://mean-larry.s3-website.us-east-2.amazonaws.com
+
+http://meancourse5-env.xu7pnb9qnq.us-east-2.elasticbeanstalk.com/
