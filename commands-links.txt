@@ -1,3 +1,5 @@
+cd Documents/CMHIP-Era/ComputerStuff/mean-course
+
 npm run start:server (localhost:3000 but must be online for database)
 
 http://mean-larry.s3-website.us-east-2.amazonaws.com
